@@ -31,8 +31,8 @@ from server_exception import LdtpServerException
 class Text(Utils):
     def generatekeyevent(self, data):
         """
-        Functionality of generatekeyevent is similar to typekey of 
-        LTFX project.
+        Generates key event to the system, this simulates the best user like
+        interaction via keyboard.
         
         @param data: data to type.
         @type data: string
@@ -40,11 +40,7 @@ class Text(Utils):
         @return: 1 on success.
         @rtype: integer
         """
-        try:
-            window=self._get_front_most_window()
-        except (IndexError, ):
-            window=self._get_any_window()
-        key_combo_action = KeyComboAction(window, data)
+        KeyComboAction(data)
         return 1
 
     def keypress(self, data):
